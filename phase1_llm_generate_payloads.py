@@ -7,8 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1RtvsXo8LEnI-YTcJbvYxM6CIzb-68xrX
 """
 
-!pip install google-genai transformers huggingface_hub kagglehub sqlglot
-
 import os
 import re
 import time
